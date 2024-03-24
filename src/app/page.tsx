@@ -1,26 +1,38 @@
-"use client"; // This is a client component 👈🏽
-
-import { useState } from "react";
 import React from "react";
 import Header from "./components/header";
 import MainNewsView from "./components/mainNewsView";
 import BottomHeader from "./components/BottomHeader";
+import News from "./news";
 
-const article: any[] = [];
+interface Article {
+  uuid: string;
+  title: string;
+  description: string;
+  keywords: string;
+  snippet: string;
+  url: string;
+  image_url: string;
+  language: string;
+  published_at: string;
+  source: string;
+  categories: string[];
+  locale: string;
+}
 
+const news = new News();
 
+const articles: Article[] = await news.getNews();
 
 export default function SimpleBottomNavigation() {
-
   return (
     <>
       <div>
-          <Header />
+        <Header />
 
-          <MainNewsView article={article}/>
+        <MainNewsView article={articles} />
 
         <div className="w-svw fixed bottom-0 z-50">
-          <BottomHeader ></BottomHeader>
+          <BottomHeader></BottomHeader>
         </div>
       </div>
     </>
