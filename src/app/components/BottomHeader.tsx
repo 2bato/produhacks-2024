@@ -7,22 +7,28 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
 function BottomHeader() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
 
   return (
     <div className="w-svw fixed bottom-0 z-50">
       <BottomNavigation
         showLabels
         value={value}
+        style={{ fontSize: 40, color: "black" }}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
       >
         <BottomNavigationAction label="Home" icon={<HomeOutlinedIcon />} />
-        <BottomNavigationAction label="Feed" icon={<FeedIcon />} />
+        <BottomNavigationAction
+          label="Feed"
+          style={{ fontSize: 40, color: "black" }}
+          icon={<FeedIcon />}
+        />
         <BottomNavigationAction
           label="Profile"
           icon={<AccountCircleOutlinedIcon />}
+          style={{ fontSize: 40, color: "black" }}
         />
       </BottomNavigation>
     </div>

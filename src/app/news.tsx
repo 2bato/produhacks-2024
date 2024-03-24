@@ -33,7 +33,7 @@ export default class News {
       "politics"
     );
 
-    alternateArticleList[2].keywords = "wildcard";
+    techArticleList[2].keywords = "wildcard";
 
     alternateArticleList[1].keywords = "alternate";
 

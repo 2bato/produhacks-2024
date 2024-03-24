@@ -19,13 +19,23 @@ function NewsComponent(prop: any) {
       <>
         <div className="flex justify-center mt-7 h-screen w-screen">
           <img
-            className="rounded-3xl object-cover h-3/4 w-11/12 border-black border-2 brightness-50 opacity-80"
+            className={`rounded-3xl object-cover h-4/5 w-11/12 border-4 brightness-50 opacity-80 border-black`}
             src={props.image_url}
             alt="main image"
           />
         </div>
-        <div className="absolute ml-4 text-lg text-white top-12 left-32">
-          <p className="judson-regular font-bold">{props.categories[0]}</p>
+        <div className={`absolute mx-[9.5rem] ext-lg top-12`}>
+          <p
+            className={`${
+              props.keywords === "wildcard"
+                ? "text-black bg-yellow-300 rounded-xl px-4 -ml-4"
+                : props.keywords === "alternate"
+                ? "text-white bg-black rounded-xl px-4"
+                : "text-black bg-white rounded-xl px-4"
+            } judson-bold`}
+          >
+            {props.categories[0]}
+          </p>
         </div>
         <div className="absolute mr-20 text-3xl text-white top-24 left-7">
           <p className="judson-regular font-bold">{props.title}</p>
@@ -42,11 +52,16 @@ function NewsComponent(prop: any) {
     );
   } else {
     return (
-      <div className="flex-col justify-center h-screen w-screen p-3 overflow-scroll">
-        <Button className="mb-2" variant="outlined" onClick={handleBack}>
+      <div className="flex-col justify-center h-screen w-screen py-3 px-6 overflow-scroll">
+        <Button
+          className="mb-2"
+          color="inherit"
+          variant="outlined"
+          onClick={handleBack}
+        >
           Back
         </Button>
-        <img src={props.image_url}></img>
+        <img src={props.image_url} className="rounded-3xl mb-4"></img>
         <p className="judson-regular">{props.snippet}</p>
       </div>
     );
