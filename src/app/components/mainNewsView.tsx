@@ -8,7 +8,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-
 // import required modules
 import { Pagination, Navigation, Mousewheel } from "swiper/modules";
 import NewsComponent from "./newsComponent";
@@ -57,10 +56,10 @@ function MainNewsView() {
         </SwiperSlide>
         <SwiperSlide>
           <NewsComponent />
-        </SwiperSlide> 
-          <SwiperSlide>
+        </SwiperSlide>
+        <SwiperSlide>
           <NewsComponent />
-        </SwiperSlide>        
+        </SwiperSlide>
       </Swiper>
     </>
   );
