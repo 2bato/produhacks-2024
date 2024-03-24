@@ -24,8 +24,15 @@ const NewsDisplay: React.FC = async () => {
     <div>
       {storedArticles.map((article, index) => (
         <div key={index}>
-          <h2>{article.title}</h2>
-          <p>{article.snippet}</p>
+          <h2
+            className={`text-xl ${
+              article.keywords === "wildcard" ? "text-yellow-500" : ""
+            }
+            ${article.keywords === "alternate" ? "text-red-500" : ""}`}
+          >
+            {article.title}
+          </h2>
+          <img src={article.image_url} alt="Image" /> <p>{article.snippet}</p>
         </div>
       ))}
     </div>

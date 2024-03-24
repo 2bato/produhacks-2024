@@ -25,8 +25,32 @@ export default class News {
   }
 
   public async getNews() {
-    let articleList: Article[] = await this.getArticleList("business");
-    console.log(articleList);
+    const businessArticleList: Article[] = await this.getArticleList(
+      "business"
+    );
+    const techArticleList: Article[] = await this.getArticleList("tech");
+    const alternateArticleList: Article[] = await this.getArticleList(
+      "politics"
+    );
+
+    alternateArticleList[2].keywords = "wildcard";
+
+    alternateArticleList[1].keywords = "alternate";
+
+    // const articleList: Article[] = businessArticleList.concat(
+    //   techArticleList,
+    //   wildcardArticleList,
+    //   alternateArticleList
+    // );
+
+    const articleList: Article[] = [
+      businessArticleList[0],
+      techArticleList[1],
+      techArticleList[2],
+      alternateArticleList[2],
+      alternateArticleList[1],
+    ];
+
     for (const article of articleList) {
       await scrapeNews(article.url).then((articleContent) => {
         if (articleContent) {
@@ -46,10 +70,11 @@ export default class News {
       "categories=" +
       category +
       "&" +
-      "published_after=" +
+      "published_before=" +
       this.dateRange +
       "&" +
-      "language=en";
+      "locale=us,ca&";
+    ("language=en");
     const req = new Request(url);
     return fetch(req)
       .then(function (response) {

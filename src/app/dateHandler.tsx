@@ -8,7 +8,8 @@ export default class NewsDate {
     const weekAgo: Date = new Date(
       this.todayDate.getTime() - 7 * 24 * 60 * 60 * 1000
     );
-    const weekAgoString: string = this.getDateString(weekAgo);
+    // const weekAgoString: string = this.getDateString(weekAgo);
+    const weekAgoString = "2024-03-22";
 
     return weekAgoString;
   }
