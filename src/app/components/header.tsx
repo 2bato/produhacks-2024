@@ -1,12 +1,11 @@
 import React from "react";
-import { Avatar } from "@mui/material";
 
 
 function Header() {
     return (
       <header className="flex items-center justify-center">
         <div className="text-2xl mt-6 flex ">
-          <h1 className="judson-regular">Middle.</h1>
+          <h1 className="judson-regular">Middle</h1>
         </div>
         {/* <div className="mt-6 relative ">
           <Avatar
