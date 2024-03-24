@@ -38,7 +38,7 @@ const exampleObject = {
 const imageUrl = exampleObject.articles[0].urlToImage;
 const newsTitle = exampleObject.articles[0].title;
 
-function MainNewsView() {
+function MainNewsView(props) {
   return (
     <>
       <Swiper
@@ -53,13 +53,13 @@ function MainNewsView() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <NewsComponent />
+          <NewsComponent article={props.article[0]}/>
         </SwiperSlide>
         <SwiperSlide>
-          <NewsComponent />
+          <NewsComponent article={props.article[1]}/>
         </SwiperSlide> 
           <SwiperSlide>
-          <NewsComponent />
+          <NewsComponent article={props.article[2]}/>
         </SwiperSlide>        
       </Swiper>
     </>

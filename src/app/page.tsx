@@ -6,6 +6,8 @@ import Header from "./components/header";
 import MainNewsView from "./components/mainNewsView";
 import BottomHeader from "./components/BottomHeader";
 
+const article: any[] = [];
+
 
 
 export default function SimpleBottomNavigation() {
@@ -15,10 +17,10 @@ export default function SimpleBottomNavigation() {
       <div>
           <Header />
 
-          <MainNewsView />
+          <MainNewsView article={article}/>
 
         <div className="w-svw fixed bottom-0 z-50">
-          <BottomHeader></BottomHeader>
+          <BottomHeader ></BottomHeader>
         </div>
       </div>
     </>
