@@ -1,28 +1,66 @@
 import NewsDate from "./dateHandler";
+import scrapeNews from "./scraper";
 
-export default function getNews() {
-  const date = new NewsDate();
-  const dateString: string = date.getDateRange();
+interface Article {
+  uuid: string;
+  title: string;
+  description: string;
+  keywords: string;
+  snippet: string;
+  url: string;
+  image_url: string;
+  language: string;
+  published_at: string;
+  source: string;
+  categories: string[];
+  locale: string;
+}
 
-  console.log(dateString);
+export default class News {
+  public dateRange: string;
+  constructor() {
+    const date = new NewsDate();
+    const dateString: string = date.getDateRange();
+    this.dateRange = dateString;
+  }
 
-  //   var url =
-  //     "https://newsapi.org/v2/everything?" +
-  //     "q=Apple&" +
-  //     dateString +
-  //     "sortBy=popularity&" +
-  //     "apiKey=ffea75f69a9746ca9f07b8320719d93d";
+  public async getNews() {
+    let articleList: Article[] = await this.getArticleList("business");
+    console.log(articleList);
+    for (const article of articleList) {
+      await scrapeNews(article.url).then((articleContent) => {
+        if (articleContent) {
+          article.snippet = articleContent;
+        } else {
+        }
+      });
+    }
 
-  //   var req = new Request(url);
+    return articleList;
+  }
 
-  //   fetch(req)
-  //     .then(function (response) {
-  //       return response.json(); // Return the JSON promise
-  //     })
-  //     .then(function (data) {
-  //       console.log(data); // Log the JSON data
-  //     })
-  //     .catch(function (error) {
-  //       console.error("Error fetching news:", error);
-  //     });
+  private getArticleList(category: string): Promise<any[]> {
+    const url =
+      "https://api.thenewsapi.com/v1/news/top?" +
+      "api_token=KjaAwhifKiQQNPIJE2VwkAG8UAdfyBsn2lNm5jfl&" +
+      "categories=" +
+      category +
+      "&" +
+      "published_after=" +
+      this.dateRange +
+      "&" +
+      "language=en";
+    const req = new Request(url);
+    return fetch(req)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        return data.data;
+      })
+      .catch(function (error) {
+        console.error("Error fetching news:", error);
+        return [];
+      });
+  }
 }

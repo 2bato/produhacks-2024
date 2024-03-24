@@ -9,11 +9,8 @@ export default class NewsDate {
       this.todayDate.getTime() - 7 * 24 * 60 * 60 * 1000
     );
     const weekAgoString: string = this.getDateString(weekAgo);
-    const todayString: string = this.getDateString(this.todayDate);
 
-    const resultString: string =
-      "from=" + weekAgoString + "&to=" + todayString + "&";
-    return resultString;
+    return weekAgoString;
   }
 
   private getDateString(date: Date) {
