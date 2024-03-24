@@ -67,7 +67,7 @@ function NewsComponent() {
     );
   } else {
     return (
-      <div className="flex-col justify-center mt-7 h-screen w-screen p-3 overflow-scroll">
+      <div className="flex-col justify-center h-screen w-screen p-3 overflow-scroll">
         <Button className="mb-2" variant="outlined" onClick={handleBack}>Back</Button>
         <img src={imageUrl}></img>
         <p className="judson-regular">
