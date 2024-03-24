@@ -7,7 +7,7 @@ import { useSwiper } from "swiper/react";
 import Alert from '@mui/material/Alert';
 
 
-function SwipeBar({ onFullscreenClick }) {
+function SwipeBar({ onFullscreenClick }: any) {
   const swiper = useSwiper();
 
   const [iconColor, setIconColor] = useState('none'); // Initial color of the icon

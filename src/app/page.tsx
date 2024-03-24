@@ -24,7 +24,7 @@ export default function SimpleBottomNavigation() {
 
           <MainNewsView />
 
-        <div className="w-svw fixed bottom-2 z-50">
+        <div className="w-svw fixed bottom-0 z-50">
           <BottomNavigation
             showLabels
             value={value}
