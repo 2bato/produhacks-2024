@@ -4,7 +4,6 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { useSwiper } from "swiper/react";
-import Alert from '@mui/material/Alert';
 
 
 function SwipeBar({ onFullscreenClick }: any) {
@@ -36,7 +35,7 @@ function SwipeBar({ onFullscreenClick }: any) {
   return (
     <>
       <div className="inline-flex space-x-7">
-        <CloseIcon onClick={() => handleClick()} style={{ fontSize: 40, backgroundColor: iconColor, borderRadius: '50%', opacity: opacityIcon}} />
+        <CloseIcon onClick={() => handleClick()} style={{ fontSize: 40, color: "white", backgroundColor: iconColor, borderRadius: '50%', opacity: opacityIcon}} />
         <KeyboardDoubleArrowRightIcon
           onClick={() => {
             setTimeout(() => {
@@ -45,12 +44,12 @@ function SwipeBar({ onFullscreenClick }: any) {
             swiper.slideNext();
             },  200);
           }}
-          style={{ fontSize: 40 }}
+          style={{ fontSize: 40, color: "white" }}
         />
-        <FullscreenIcon style={{ fontSize: 40 }} 
+        <FullscreenIcon style={{ fontSize: 40, color: "white" }} 
                   onClick={onFullscreenClick} // Handle FullscreenIcon click by calling the onFullscreenClick callback
                   />
-        <BookmarkBorderIcon style={{ fontSize: 40 }} />
+        <BookmarkBorderIcon style={{ fontSize: 40, color: "white" }} />
       </div>
     </>
   );

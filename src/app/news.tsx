@@ -37,6 +37,14 @@ export default class News {
 
     alternateArticleList[1].keywords = "alternate";
 
+    businessArticleList[0].categories[0] = "Business  ";
+
+    techArticleList[1].categories[0] = "Business  ";
+
+    techArticleList[2].categories[0] = "Entertainment";
+    alternateArticleList[2].categories[0] = "Sports   ";
+    alternateArticleList[1].categories[0] = "Politics   ";
+
     // const articleList: Article[] = businessArticleList.concat(
     //   techArticleList,
     //   wildcardArticleList,
@@ -66,7 +74,7 @@ export default class News {
   private getArticleList(category: string): Promise<any[]> {
     const url =
       "https://api.thenewsapi.com/v1/news/top?" +
-      "api_token=KjaAwhifKiQQNPIJE2VwkAG8UAdfyBsn2lNm5jfl&" +
+      "api_token=tXad2sLAw5AKATh87ajb6eT5vEP5IN793HflZHnb&" +
       "categories=" +
       category +
       "&" +
